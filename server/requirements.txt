@@ -1,0 +1,9 @@
+flask
+flask-cors
+google-genai
+python-dotenv
+# PDF & OCR
+pdfplumber
+pytesseract
+Pillow
+PyMuPDF

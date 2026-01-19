@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "637109409697",
+    "project_id": "chikitsya-484e9",
+    "storage_bucket": "chikitsya-484e9.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:637109409697:android:6f7e87c5983dfce2c5dde0",
+        "android_client_info": {
+          "package_name": "com.example.chikitsya"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCjY4gi2QJgVmirWA6YRZV26uVkDR1CoDE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

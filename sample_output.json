@@ -1,0 +1,443 @@
+{
+  "resourceType": "Bundle",
+  "type": "document",
+  "entry": [
+    {
+      "resource": {
+        "resourceType": "Composition",
+        "id": "1",
+        "status": "final",
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "18842-5",
+              "display": "Discharge summary"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/1"
+        },
+        "section": [
+          {
+            "title": "Medications",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "10160-0",
+                  "display": "History of medication use"
+                }
+              ]
+            },
+            "entry": [
+              {
+                "reference": "MedicationRequest/2"
+              },
+              {
+                "reference": "MedicationRequest/3"
+              },
+              {
+                "reference": "MedicationRequest/4"
+              },
+              {
+                "reference": "MedicationRequest/5"
+              },
+              {
+                "reference": "MedicationRequest/6"
+              },
+              {
+                "reference": "MedicationRequest/7"
+              },
+              {
+                "reference": "MedicationRequest/8"
+              },
+              {
+                "reference": "MedicationRequest/9"
+              },
+              {
+                "reference": "MedicationRequest/10"
+              },
+              {
+                "reference": "MedicationRequest/11"
+              },
+              {
+                "reference": "MedicationRequest/12"
+              }
+            ]
+          },
+          {
+            "title": "Follow-up",
+            "entry": [
+              {
+                "reference": "Appointment/13"
+              },
+              {
+                "reference": "Appointment/14"
+              },
+              {
+                "reference": "Appointment/15"
+              }
+            ]
+          },
+          {
+            "title": "Warnings",
+            "entry": [
+              {
+                "reference": "Observation/16"
+              }
+            ]
+          },
+          {
+            "title": "Diet",
+            "entry": [
+              {
+                "reference": "NutritionOrder/17"
+              }
+            ]
+          },
+          {
+            "title": "Activity",
+            "entry": [
+              {
+                "reference": "CarePlan/18"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "2",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "text": "Syp. Taxim-O Forte"
+        },
+        "dosageInstruction": [
+          {
+            "text": "65 mg twice daily PO x 3 days then stop",
+            "timing": {
+              "repeat": {
+                "frequency": 2,
+                "period": 1,
+                "periodUnit": "d"
+              }
+            }
+          }
+        ],
+        "exact_time": [
+          "8:00 AM",
+          "8:00 PM"
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "3",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "text": "Syp. Furosemide"
+        },
+        "dosageInstruction": [
+          {
+            "text": "10 mg thrice daily PO x 2 weeks",
+            "timing": {
+              "repeat": {
+                "frequency": 3,
+                "period": 1,
+                "periodUnit": "d"
+              }
+            }
+          }
+        ],
+        "exact_time": [
+          "6:00 AM",
+          "2:00 PM",
+          "10:00 PM"
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "4",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "text": "Tab. Spironolactone"
+        },
+        "dosageInstruction": [
+          {
+            "text": "5 mg twice daily PO x 2 weeks",
+            "timing": {
+              "repeat": {
+                "frequency": 2,
+                "period": 1,
+                "periodUnit": "d"
+              }
+            }
+          }
+        ],
+        "exact_time": [
+          "6:00 AM",
+          "6:00 PM"
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "5",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "text": "Tab. Sildenafil"
+        },
+        "dosageInstruction": [
+          {
+            "text": "15 mg thrice daily PO x 2 weeks",
+            "timing": {
+              "repeat": {
+                "frequency": 3,
+                "period": 1,
+                "periodUnit": "d"
+              }
+            }
+          }
+        ],
+        "exact_time": [
+          "6:00 AM",
+          "2:00 PM",
+          "10:00 PM"
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "6",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "text": "Tab. Enalapril"
+        },
+        "dosageInstruction": [
+          {
+            "text": "0.5 mg twice daily PO x 2 weeks",
+            "timing": {
+              "repeat": {
+                "frequency": 2,
+                "period": 1,
+                "periodUnit": "d"
+              }
+            }
+          }
+        ],
+        "exact_time": [
+          "8:00 AM",
+          "8:00 PM"
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "7",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "text": "Tab. Ecosprin"
+        },
+        "dosageInstruction": [
+          {
+            "text": "65 mg once daily PO x 6 weeks",
+            "timing": {
+              "repeat": {
+                "frequency": 1,
+                "period": 1,
+                "periodUnit": "d"
+              }
+            }
+          }
+        ],
+        "exact_time": [
+          "10:00 PM"
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "8",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "text": "Tab. Lanzol Junior"
+        },
+        "dosageInstruction": [
+          {
+            "text": "15 mg twice daily PO x 1 week then stop",
+            "timing": {
+              "repeat": {
+                "frequency": 2,
+                "period": 1,
+                "periodUnit": "d"
+              }
+            }
+          }
+        ],
+        "exact_time": [
+          "8:00 AM",
+          "8:00 PM"
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "9",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "text": "Syp. Visyneral Z"
+        },
+        "dosageInstruction": [
+          {
+            "text": "5 ml once daily PO x 3 weeks then stop",
+            "timing": {
+              "repeat": {
+                "frequency": 1,
+                "period": 1,
+                "periodUnit": "d"
+              }
+            }
+          }
+        ],
+        "exact_time": [
+          "9:00 AM"
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "10",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "text": "Syp. Calcimax P"
+        },
+        "dosageInstruction": [
+          {
+            "text": "5 ml twice daily PO x 3 weeks then stop",
+            "timing": {
+              "repeat": {
+                "frequency": 2,
+                "period": 1,
+                "periodUnit": "d"
+              }
+            }
+          }
+        ],
+        "exact_time": [
+          "9:00 AM",
+          "9:00 PM"
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "11",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "text": "Syp. Crocin"
+        },
+        "dosageInstruction": [
+          {
+            "text": "225 mg as and when required",
+            "additionalInstruction": [
+              {
+                "text": "PRN"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "12",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "text": "Betadine lotion"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Local application twice daily on the wound x 7 days",
+            "timing": {
+              "repeat": {
+                "frequency": 2,
+                "period": 1,
+                "periodUnit": "d"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Appointment",
+        "id": "13",
+        "status": "booked",
+        "description": "Review after 3 days with serum Na+ and K+ level. Dose of diuretics to be decided on follow up."
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Appointment",
+        "id": "14",
+        "status": "booked",
+        "description": "Stitch removal after one week."
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Appointment",
+        "id": "15",
+        "status": "booked",
+        "description": "Long term pediatric cardiology follow-up with Dr. K.S. Dagar and Dr. Neeraj Awasthy."
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "16",
+        "status": "final",
+        "code": {
+          "text": "Emergency Symptoms"
+        },
+        "valueString": "Poor feeding, persistent irritability / drowsiness, increase in blueness, fast breathing or decreased urine output."
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "NutritionOrder",
+        "id": "17",
+        "status": "active",
+        "oralDiet": {
+          "instruction": "Fluid: 900-1000 ml/day; Normal diet."
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "CarePlan",
+        "id": "18",
+        "status": "active",
+        "description": {
+          "text": "Intake/Output charting; Immunization as per national schedule after 4 weeks; Infective endocarditis prophylaxis."
+        }
+      }
+    }
+  ]
+}
