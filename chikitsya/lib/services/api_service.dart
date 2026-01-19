@@ -1,10 +1,11 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class ApiService {
   // For Android emulator use 10.0.2.2
   // For real device use your laptop IP (e.g. 192.168.x.x)
-  static const String baseUrl = 'http://192.168.1.4:5000';
+  static String get baseUrl => dotenv.env['API_BASE_URL'] ?? 'http://192.168.1.13:5000';
   static const Duration requestTimeout = Duration(seconds: 60);
 
   static Future<String> reportSymptoms({

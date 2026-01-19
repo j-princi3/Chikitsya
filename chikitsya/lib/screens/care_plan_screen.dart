@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:developer' as developer;
 import 'package:http/http.dart' as http;
+import '../services/api_service.dart';
 
 import 'package:chikitsya/l10n/app_localizations.dart';
 import 'package:chikitsya/providers/settings_provider.dart';
@@ -108,7 +109,7 @@ class _CarePlanScreenState extends State<CarePlanScreen> {
       ).language;
 
       final response = await http.post(
-        Uri.parse('http://192.168.1.4:5000/generate-chat-title'),
+        Uri.parse('${ApiService.baseUrl}/generate-chat-title'),
         headers: {'Content-Type': 'application/json'},
         body: jsonEncode({
           'discharge_summary': widget.dischargeSummary,

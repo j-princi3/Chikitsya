@@ -8,6 +8,7 @@ import 'providers/settings_provider.dart';
 import 'providers/profile_provider.dart';
 import 'screens/welcome_screen.dart';
 import 'firebase_options.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:timezone/data/latest.dart' as tz;
 
@@ -29,12 +30,15 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   try {
+    await dotenv.load(fileName: '.env');
+
     // Load environment variables
     // await Config.load(); 
 
-    await Firebase.initializeApp(
-      options: DefaultFirebaseOptions.currentPlatform,
-    );
+    if (Firebase.apps.isEmpty) {
+      await Firebase.initializeApp();
+    }
+
     final settingsProvider = SettingsProvider();
     await settingsProvider.loadSettings();
     tz.initializeTimeZones();

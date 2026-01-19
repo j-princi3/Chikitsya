@@ -1,8 +1,16 @@
 import pdfplumber
 import requests
+import os
+from dotenv import load_dotenv
 
-ANALYZER_URL = "http://192.168.1.4:5002/analyze"
-ANONYMIZER_URL = "http://192.168.1.4:5001/anonymize"
+# Load env from server/.env if present
+load_dotenv(os.path.join(os.path.dirname(__file__), '.env'))
+
+ANALYZER_HOST = os.getenv('ANALYZER_URL', 'http://127.0.0.1:5002')
+ANONYMIZER_HOST = os.getenv('ANONYMIZER_URL', 'http://127.0.0.1:5001')
+
+ANALYZER_URL = f"{ANALYZER_HOST.rstrip('/')}/analyze"
+ANONYMIZER_URL = f"{ANONYMIZER_HOST.rstrip('/')}/anonymize"
 
 ALLOWED_ENTITIES = {
     "PERSON",
@@ -74,4 +82,6 @@ def process_pdf(file_path: str) -> str:
     analyzer_results = analyze_text(raw_text)
     filtered_results = filter_entities(analyzer_results)
     anonymized_text = anonymize_text(raw_text, filtered_results)
+    print("Anonymization complete.")
+    print(anonymized_text)
     return anonymized_text

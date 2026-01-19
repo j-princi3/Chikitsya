@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import '../services/api_service.dart';
 import 'package:provider/provider.dart';
 import '../services/database_service.dart';
 import '../providers/settings_provider.dart';
@@ -273,7 +274,7 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
 
     try {
       final response = await http.post(
-        Uri.parse('http://192.168.1.4:5000/translate-text'),
+        Uri.parse('${ApiService.baseUrl}/translate-text'),
         headers: {'Content-Type': 'application/json'},
         body: jsonEncode({
           'text': text,
@@ -372,7 +373,7 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
     String language,
     String summary,
   ) async {
-    final url = Uri.parse('http://192.168.1.4:5000/voice-query');
+    final url = Uri.parse('${ApiService.baseUrl}/voice-query');
     final response = await http.post(
       url,
       headers: {'Content-Type': 'application/json'},

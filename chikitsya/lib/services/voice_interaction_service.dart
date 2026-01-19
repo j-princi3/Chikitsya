@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:speech_to_text/speech_to_text.dart' as stt;
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:http/http.dart' as http;
+import 'api_service.dart';
 import 'dart:convert';
 import 'package:provider/provider.dart';
 import '../providers/settings_provider.dart';
@@ -218,9 +219,7 @@ class VoiceInteractionService {
     String language,
     String summary,
   ) async {
-    final url = Uri.parse(
-      'http://192.168.1.4:5000/voice-query',
-    ); // Adjust IP for emulator
+    final url = Uri.parse('${ApiService.baseUrl}/voice-query');
     final response = await http.post(
       url,
       headers: {'Content-Type': 'application/json'},
