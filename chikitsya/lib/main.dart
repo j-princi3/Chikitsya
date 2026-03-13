@@ -32,11 +32,10 @@ void main() async {
   try {
     await dotenv.load(fileName: '.env');
 
-    // Load environment variables
-    // await Config.load(); 
-
     if (Firebase.apps.isEmpty) {
-      await Firebase.initializeApp();
+      await Firebase.initializeApp(
+        options: DefaultFirebaseOptions.currentPlatform,
+      );
     }
 
     final settingsProvider = SettingsProvider();

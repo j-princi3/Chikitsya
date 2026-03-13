@@ -3,6 +3,7 @@
 import 'package:firebase_core/firebase_core.dart' show FirebaseOptions;
 import 'package:flutter/foundation.dart'
     show defaultTargetPlatform, kIsWeb, TargetPlatform;
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 /// Default [FirebaseOptions] for use with your Firebase apps.
 ///
@@ -15,6 +16,14 @@ import 'package:flutter/foundation.dart'
 /// );
 /// ```
 class DefaultFirebaseOptions {
+  static String _requiredEnv(String key) {
+    final value = dotenv.env[key];
+    if (value == null || value.isEmpty) {
+      throw StateError('Missing required environment variable: $key');
+    }
+    return value;
+  }
+
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
       return web;
@@ -40,49 +49,49 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyBPpVff0XlPhIaX8TEPGetl32zamat7WiQ',
-    appId: '1:525600832054:web:a39b03d8d79ffd15cab697',
-    messagingSenderId: '525600832054',
-    projectId: 'chikitsya-a1e2d',
-    authDomain: 'chikitsya-a1e2d.firebaseapp.com',
-    storageBucket: 'chikitsya-a1e2d.firebasestorage.app',
-    measurementId: 'G-YM8WDVJ7L8',
+  static FirebaseOptions get web => FirebaseOptions(
+    apiKey: _requiredEnv('FIREBASE_WEB_API_KEY'),
+    appId: _requiredEnv('FIREBASE_WEB_APP_ID'),
+    messagingSenderId: _requiredEnv('FIREBASE_MESSAGING_SENDER_ID'),
+    projectId: _requiredEnv('FIREBASE_PROJECT_ID'),
+    authDomain: _requiredEnv('FIREBASE_AUTH_DOMAIN'),
+    storageBucket: _requiredEnv('FIREBASE_STORAGE_BUCKET'),
+    measurementId: _requiredEnv('FIREBASE_WEB_MEASUREMENT_ID'),
   );
 
-  static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyBdwwRtaEgvNKcaYosD_aswcUO29sUXkC8',
-    appId: '1:525600832054:android:07c0071eae8acb5fcab697',
-    messagingSenderId: '525600832054',
-    projectId: 'chikitsya-a1e2d',
-    storageBucket: 'chikitsya-a1e2d.firebasestorage.app',
+  static FirebaseOptions get android => FirebaseOptions(
+    apiKey: _requiredEnv('FIREBASE_ANDROID_API_KEY'),
+    appId: _requiredEnv('FIREBASE_ANDROID_APP_ID'),
+    messagingSenderId: _requiredEnv('FIREBASE_MESSAGING_SENDER_ID'),
+    projectId: _requiredEnv('FIREBASE_PROJECT_ID'),
+    storageBucket: _requiredEnv('FIREBASE_STORAGE_BUCKET'),
   );
 
-  static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyDmWVV9hnp2pGz5-c12z-9urWl7c5aHPak',
-    appId: '1:525600832054:ios:80738e5c230ecce0cab697',
-    messagingSenderId: '525600832054',
-    projectId: 'chikitsya-a1e2d',
-    storageBucket: 'chikitsya-a1e2d.firebasestorage.app',
-    iosBundleId: 'com.example.chikitsya',
+  static FirebaseOptions get ios => FirebaseOptions(
+    apiKey: _requiredEnv('FIREBASE_IOS_API_KEY'),
+    appId: _requiredEnv('FIREBASE_IOS_APP_ID'),
+    messagingSenderId: _requiredEnv('FIREBASE_MESSAGING_SENDER_ID'),
+    projectId: _requiredEnv('FIREBASE_PROJECT_ID'),
+    storageBucket: _requiredEnv('FIREBASE_STORAGE_BUCKET'),
+    iosBundleId: _requiredEnv('FIREBASE_IOS_BUNDLE_ID'),
   );
 
-  static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyDmWVV9hnp2pGz5-c12z-9urWl7c5aHPak',
-    appId: '1:525600832054:ios:80738e5c230ecce0cab697',
-    messagingSenderId: '525600832054',
-    projectId: 'chikitsya-a1e2d',
-    storageBucket: 'chikitsya-a1e2d.firebasestorage.app',
-    iosBundleId: 'com.example.chikitsya',
+  static FirebaseOptions get macos => FirebaseOptions(
+    apiKey: _requiredEnv('FIREBASE_MACOS_API_KEY'),
+    appId: _requiredEnv('FIREBASE_MACOS_APP_ID'),
+    messagingSenderId: _requiredEnv('FIREBASE_MESSAGING_SENDER_ID'),
+    projectId: _requiredEnv('FIREBASE_PROJECT_ID'),
+    storageBucket: _requiredEnv('FIREBASE_STORAGE_BUCKET'),
+    iosBundleId: _requiredEnv('FIREBASE_MACOS_BUNDLE_ID'),
   );
 
-  static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyBPpVff0XlPhIaX8TEPGetl32zamat7WiQ',
-    appId: '1:525600832054:web:80b974927a363c9dcab697',
-    messagingSenderId: '525600832054',
-    projectId: 'chikitsya-a1e2d',
-    authDomain: 'chikitsya-a1e2d.firebaseapp.com',
-    storageBucket: 'chikitsya-a1e2d.firebasestorage.app',
-    measurementId: 'G-8HB3FFG2SJ',
+  static FirebaseOptions get windows => FirebaseOptions(
+    apiKey: _requiredEnv('FIREBASE_WINDOWS_API_KEY'),
+    appId: _requiredEnv('FIREBASE_WINDOWS_APP_ID'),
+    messagingSenderId: _requiredEnv('FIREBASE_MESSAGING_SENDER_ID'),
+    projectId: _requiredEnv('FIREBASE_PROJECT_ID'),
+    authDomain: _requiredEnv('FIREBASE_AUTH_DOMAIN'),
+    storageBucket: _requiredEnv('FIREBASE_STORAGE_BUCKET'),
+    measurementId: _requiredEnv('FIREBASE_WINDOWS_MEASUREMENT_ID'),
   );
 }
